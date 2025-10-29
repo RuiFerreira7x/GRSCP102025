@@ -18,12 +18,9 @@ public class exercicio07 {
         valor3= input.nextInt();
 
         //total %10
-        
 
+        System.out.println("total "+);
 
-
-        System.out.println("valor1 "+ valor1);
-        System.out.println("valor2 "+ valor2 );
 
     }
 
