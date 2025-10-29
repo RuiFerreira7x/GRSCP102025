@@ -20,5 +20,10 @@ public class exercicio05 {
         mediaaritmetica=(nota1+nota2+nota3)/3;
         System.out.println("media " +mediaaritmetica);
 
+        mediaponderada= (nota1*0.20)+(nota2*0.30)+(nota3*0.50);
+        System.out.println("media ponderada " + mediaponderada);
+
+
+
     }
 }
