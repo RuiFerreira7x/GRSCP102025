@@ -7,23 +7,24 @@ public class ex03 {
 
         Scanner input = new Scanner(System.in);
 
-        int salario;
-        double imposto;
+        double salarioAnual, imposto;
 
-        System.out.println("Introduza o salário");
-        salario = input.nextInt();
+        System.out.print("Insira o salário anual: ");
+        salarioAnual = input.nextDouble();
 
-        if (salario <= 15000) {
-            imposto = salario * 0.20;
-        } else if (salario <= 20000) {
-            imposto = salario * 0.30;
-        } else if (salario <= 25000) {
-            imposto = salario * 0.35;
+        if (salarioAnual <= 15000) {
+            imposto = salarioAnual * 0.2;
+            System.out.println("Taxa de 20%: " + imposto + " €");
+        } else if (salarioAnual <= 20000) {
+            imposto = salarioAnual * 0.3;
+            System.out.println("Taxa de 30%: " + imposto + " €");
+        } else if (salarioAnual <= 25000) {
+            imposto = salarioAnual * 0.35;
+            System.out.println("Taxa de 35%: " + imposto + " €");
         } else {
-            imposto = salario * 0.40;
+            imposto = salarioAnual * 0.4;
+            System.out.println("Taxa de 40%: " + imposto + " €");
         }
-
-        System.out.println("Impostos a pagar: ");
 
     }
 }
