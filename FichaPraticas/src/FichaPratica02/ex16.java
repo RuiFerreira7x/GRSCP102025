@@ -14,4 +14,5 @@ public class ex16 {
         valor = input.nextInt();
 
 
+
 }
