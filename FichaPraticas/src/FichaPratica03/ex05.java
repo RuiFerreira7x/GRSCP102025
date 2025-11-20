@@ -7,16 +7,20 @@ public class ex05 {
 
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Introduza um número inteiro: ");
-        int vezes = input.nextInt();
-        input.nextLine();
+        int num = 1, limite;
+        String mensagem;
 
-        System.out.print("Introduza a mensagem: ");
-        String mensagem = input.nextLine();
+        // Ler limite
+        System.out.print("Quantas vezes queres a mensagem: ");
+        limite = input.nextInt();
 
-        int i = 0;
-        while (i < vezes) {
+        System.out.print("Mensagem: ");
+        input.nextLine(); // Limpeza de buffer
+        mensagem = input.nextLine();
+
+        while (num <= limite) {
             System.out.println(mensagem);
+            num = num + 1;
 
 
         }

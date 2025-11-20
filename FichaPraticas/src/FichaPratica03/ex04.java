@@ -5,14 +5,22 @@ import java.util.Scanner;
 public class ex04 {
     public static void main(String[] args) {
 
+        // CTRL + ALT + L
+
         Scanner input = new Scanner(System.in);
 
-        System.out.print("Introduza um número inteiro: ");
-        int num = input.nextInt();
+        // Declarar variáveis
+        int num = 0, limite;
 
-        int i = 0;
-        while (i <= 20) {
-            System.out.println(i);
+        // Ler limite
+        System.out.print("Insira o limite: ");
+        limite = input.nextInt();
+
+        while (num <= limite){
+            System.out.println(num);
+            num = num + 1;
+        }
+
     }
 }
-}
+
