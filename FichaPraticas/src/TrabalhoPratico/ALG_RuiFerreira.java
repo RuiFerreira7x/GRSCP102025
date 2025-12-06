@@ -43,11 +43,11 @@ public class ALG_RuiFerreira {
 
 
         //Login da loja1
-        String loginLoja1 = "loja1";
-        String senhaLoja1 = "pass1";
+        String loginLoja1 = "Loja1";
+        String passLoja1 = "1234";
         //Login da loja2
-        String loginLoja2 = "loja2";
-        String senhaLoja2 = "pass2";
+        String loginLoja2 = "Loja2";
+        String passLoja2 = "2345";
 
         //modos do loggin
         boolean programaAtivo = true;
@@ -62,22 +62,22 @@ public class ALG_RuiFerreira {
         //Loggin
 
         while (programaAtivo) {
-            if (!loggin) {   //alterei o valor do boolean
-                System.out.println("=== LOGIN ===");
-                System.out.print("Insira o Username (ou 'sair' para terminar): ");
+            if (!loggin) {                  //alterei o valor do boolean
+                System.out.println("-----Bem-vindo----- ");
+                System.out.print("Introduza o Username (ou 'sair' para terminar): ");
                 username = input.nextLine();
-                if (username.equals("sair")) {               //usei o .equals
+                if (username.equals("sair")) {
                     programaAtivo = false;
                     break;
                 }
-                System.out.print("Password: ");
+                System.out.print("Introduza a Password: ");
                 password = input.nextLine();
 
-                if (username.equals(loginLoja1) && password.equals(senhaLoja1)) {
+                if (username.equals(loginLoja1) && password.equals(passLoja1)) {
                     lojaAtual = 1;
                     loggin = true;
                     System.out.println("Bem-vindo há Loja 1");
-                } else if (username.equals(loginLoja2) && password.equals(senhaLoja2)) {
+                } else if (username.equals(loginLoja2) && password.equals(passLoja2)) {
                     lojaAtual = 2;
                     loggin = true;
                     System.out.println("Bem-vindo há Loja 2");
@@ -86,7 +86,7 @@ public class ALG_RuiFerreira {
                 }
             } else {                              //quando entra na loja
                 System.out.println();
-                System.out.println("=== MENU PRINCIPAL ===");
+                System.out.println("----- MENU PRINCIPAL -----");
                 System.out.println("1. Consultar Informacoes");
                 System.out.println("2. Adquirir");
                 System.out.println("3. Vender");
@@ -197,8 +197,8 @@ public class ALG_RuiFerreira {
 
                         //mais 2 variaveis para o produto adiquirido
                         int ProdAdiquirido = input.nextInt();
-                        System.out.print("Quantidade para adquirir: ");
                         int QuatidadeAdiquirida = input.nextInt();
+                        System.out.print("Quantidade para adquirir: ");
                         input.nextLine();
 
                         if (ProdAdiquirido == 1) {
@@ -275,15 +275,15 @@ public class ALG_RuiFerreira {
                         System.out.print("Escolha o numero do produto: ");
 
                         //mais 2 variaveis para a venda
-                        int prodVenda = input.nextInt();
-                        System.out.print("Quantidade a vender: ");
+                        int ProdVenda = input.nextInt();
                         int QuatidadeVenda = input.nextInt();
+                        System.out.print("Quantidade a vender: ");
                         input.nextLine();
 
                         //criar boolean caso nao tenha stock
                         boolean vendaO = false;
 
-                        if (prodVenda == 1) {
+                        if (ProdVenda == 1) {
                             if (lojaAtual == 1 && stock1Loja1 >= QuatidadeVenda) {
                                 stock1Loja1 = stock1Loja1 - QuatidadeVenda;
                                 vendaO = true;
@@ -291,7 +291,7 @@ public class ALG_RuiFerreira {
                                 stock1Loja2 = stock1Loja2 - QuatidadeVenda;
                                 vendaO = true;
                             }
-                        } else if (prodVenda == 2) {
+                        } else if (ProdVenda == 2) {
                             if (lojaAtual == 1 && stock2Loja1 >= QuatidadeVenda) {
                                 stock2Loja1 = stock2Loja1 - QuatidadeVenda;
                                 vendaO = true;
@@ -299,7 +299,7 @@ public class ALG_RuiFerreira {
                                 stock2Loja2 = stock2Loja2 - QuatidadeVenda;
                                 vendaO = true;
                             }
-                        } else if (prodVenda == 3) {
+                        } else if (ProdVenda == 3) {
                             if (lojaAtual == 1 && stock3Loja1 >= QuatidadeVenda) {
                                 stock3Loja1 = stock3Loja1 - QuatidadeVenda;
                                 vendaO = true;
@@ -307,7 +307,7 @@ public class ALG_RuiFerreira {
                                 stock3Loja2 = stock3Loja2 - QuatidadeVenda;
                                 vendaO = true;
                             }
-                        } else if (prodVenda == 4) {
+                        } else if (ProdVenda == 4) {
                             if (lojaAtual == 1 && stock4Loja1 >= QuatidadeVenda) {
                                 stock4Loja1 = stock4Loja1 - QuatidadeVenda;
                                 vendaO = true;
@@ -351,8 +351,8 @@ public class ALG_RuiFerreira {
 
                         //variavel para a transfericia de produtos
                         int TransferenciaProduto = input.nextInt();
-                        System.out.print("Quantidade para transferir: ");
                         int QuantidadeTransferida = input.nextInt();
+                        System.out.print("Quantidade a transferir: ");
                         input.nextLine();
 
                         if (TransferenciaProduto == 1) {
