@@ -22,5 +22,5 @@ public class ex02 {
         return num;
 
     }
-    
+
 }
