@@ -1,16 +1,16 @@
-package PCE_ruiFerreira;
+package Teste;
+
 
 import java.util.Scanner;
 
-public class PCE_ruiFerreira {
+public class Funções_Galo {
 
-    public class Funções {
 
-        Scanner input = new Scanner(System.in);
         /**
-         * Função para verificar se esta ocupada
-         * @param posicao verfica posicao
-         * @return linha prenchida
+         * Verifica se a posição ja foi ocupada
+         * @param matriz
+         * @param posicao
+         * @return se a jogada é válida
          */
         public static boolean Ocupada(String[][] matriz, int posicao) {
 
@@ -76,30 +76,33 @@ public class PCE_ruiFerreira {
 
             return false;
         }
-        /**
-         * Função para imprimir depois de jogar
-         * @param matriz imprime
-         * @return como esta o jogo
-         */
-        public static void ImprimirMatriz(String[][] matriz) {
 
-            System.out.println("---------");
+        /**
+         * Imprime o tabuleiro do jogo
+         * @param matriz
+         *@return o tabuleiro prenchido
+         */
+        public static void imprimir_o_Tabuleiro(String[][] matriz) {
+
+            System.out.println("-----------------");
 
             for (int i = 0; i < matriz.length; i++) {
                 for (int j = 0; j < matriz[0].length; j++) {
-                    System.out.print("|" + matriz[i][j] + "|");
+                    System.out.print("|" + matriz[i][j]);
                 }
-                System.out.println("\n---------");
+                System.out.print("|");
+                System.out.println("\n-----------------");
 
             }
 
         }
+
         /**
-         * Função para o jogador1 jogar
-         * @param matriz verfica posicao
-         * @return se e valida ou nao
+         * O Jogador 1 joga onde quer
+         * @param matriz
+         * @return jogada do jogador 1
          */
-        public static String[][] Jogador01_joga(String[][] matriz) {
+        public static String[][] jogador01_joga(String[][] matriz) {
 
             Scanner input = new Scanner(System.in);
             int posicao = 0;
@@ -109,16 +112,16 @@ public class PCE_ruiFerreira {
                 jogadaValida = true;
 
                 System.out.println("-----------------");
-                System.out.print("Introduza a posição em que quer jogar (Jogador 1 [X]):  ");
+                System.out.print("Introduza a posição onde quer jogar (Jogador 1 [X]):  ");
                 posicao = input.nextInt();
                 if (posicao < 1 || posicao > 9) {
                     System.out.println("-----------------");
-                    System.out.println("Escolha uma posição! ( 1 - 9 )");
+                    System.out.println("Escolha uma posição válida! ( 1 - 9 )");
                     jogadaValida = false;
                 } else if (Ocupada(matriz, posicao)) {
                     jogadaValida = false;
                     System.out.println("-----------------");
-                    System.out.println("Posição ocupada!");
+                    System.out.println("Posição já esta ocupada!");
                 }
             }
 
@@ -162,19 +165,20 @@ public class PCE_ruiFerreira {
 
                 default:
                     System.out.println("-----------------");
-                    System.out.println(" Introduza uma válida! ( 1 - 9 )");
+                    System.out.println(" Introduza uma posição válida! ( 1 - 9 )");
                     break;
 
             }
 
             return matriz;
         }
+
         /**
-         * Função para o jogador2 jogar
-         * @param matriz verfica posicao
-         * @return se e valida ou nao
+         * O Jogador 2 joga onde quer
+         * @param matriz
+         * @return jogada do jogador 2
          */
-        public static String[][] Jogador02_joga(String[][] matriz) {
+        public static String[][] jogador02_joga(String[][] matriz) {
 
             Scanner input = new Scanner(System.in);
             int num, posicao = 0;
@@ -184,16 +188,16 @@ public class PCE_ruiFerreira {
                 jogadaValida = true;
 
                 System.out.println("-----------------");
-                System.out.print("Introduza a posição em que quer jogar (Jogador 2 [O]):  ");
+                System.out.print("Introduza a posição onde quer jogar (Jogador 2 [O]):  ");
                 posicao = input.nextInt();
                 if (posicao < 1 || posicao > 9) {
                     System.out.println("-----------------");
-                    System.out.println("Escolha uma posição  ( 1 - 9 )");
+                    System.out.println("Escolha uma posição válida! ( 1 - 9 )");
                     jogadaValida = false;
                 } else if (Ocupada(matriz, posicao)) {
                     jogadaValida = false;
                     System.out.println("-----------------");
-                    System.out.println("Posição ocupada!");
+                    System.out.println("Posição já esta ocupada!");
                 }
             }
 
@@ -244,12 +248,13 @@ public class PCE_ruiFerreira {
 
             return matriz;
         }
+
         /**
-         * Função preencher a matriz
-         * @param matriz acresenta
-         * @return contador da matriz
+         * Preenche o tabuleiro de jogo
+         * @param matriz
+         * @return tabuleiro preenchido
          */
-        public static String[][] PreencherMatriz(String[][] matriz) {
+        public static String[][] preencher_Matriz(String[][] matriz) {
 
             Integer contador = 1;
 
@@ -264,12 +269,13 @@ public class PCE_ruiFerreira {
             return matriz;
 
         }
+
         /**
-         * Função para verificar jogador1 vencedor
-         * @param matriz verfica o vencedor
-         * @return se o jogador1 e vencedor
+         * Testa se o jogador 1 ja tem vitória
+         * @param matriz
+         * @return jogador 1 é o vencedor
          */
-        public static boolean Vencedor1(String[][] matriz) {
+        public static boolean vencedor1(String[][] matriz) {
 
             boolean vencedor = false;
 
@@ -323,12 +329,13 @@ public class PCE_ruiFerreira {
 
             return vencedor;
         }
+
         /**
-         * Função para verificar jogador2 vencedor
-         * @param matriz verfica o vencedor
-         * @return se o jogador2 e vencedor
+         Testa se o jogador 2 já tem vitória
+         * @param matriz
+         * @return jogador 2 é o vencedor
          */
-        public static boolean Vencedor2(String[][] matriz) {
+        public static boolean vencedor2(String[][] matriz) {
 
             boolean vencedor = false;
 
@@ -382,6 +389,6 @@ public class PCE_ruiFerreira {
 
             return vencedor;
         }
-    }
-}
 
+
+    }
