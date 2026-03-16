@@ -1,0 +1,16 @@
+def calcular_quadrado(lado):
+    """Calcula o quadrado (área) de um número"""
+    return lado ** 2
+
+def calcular_perimetro(lado):
+    """Calcula o perímetro de um quadrado (4 * lado)"""
+    return 4 * lado
+
+# Programa principal
+lado = float(input("Digite o lado do quadrado: "))
+
+area = calcular_quadrado(lado)
+perimetro = calcular_perimetro(lado)
+
+print(f"Área do quadrado: {area}")
+print(f"Perímetro do quadrado: {perimetro}")

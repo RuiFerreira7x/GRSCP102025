@@ -1,0 +1,10 @@
+soma = 0
+quantidade = 0
+
+while soma <= 100:
+    n = float(input("Digite um número: "))
+    soma += n
+    quantidade += 1
+
+print("Soma final:", soma)
+print("Quantidade de números digitados:", quantidade)

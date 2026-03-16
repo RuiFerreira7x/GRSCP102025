@@ -1,0 +1,9 @@
+soma = 0          # acumulador
+contador = 1      # quantos números já pedimos
+
+while contador <= 5:
+    numero = float(input(f"Digite o {contador}º número: "))
+    soma = soma + numero
+    contador = contador + 1   # incrementa o contador
+
+print("A soma dos 5 números é:", soma)

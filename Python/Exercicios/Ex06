@@ -1,0 +1,7 @@
+
+n1=int(input("Digite o intervalo inferior : "))
+n2=int(input("Digite o intervalo superior : "))
+
+for i in range(n1,n2+1) :
+     if i %2==0:
+         print(i)

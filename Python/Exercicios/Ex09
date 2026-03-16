@@ -1,0 +1,45 @@
+user = "user" 
+
+password = "1234" 
+
+  
+
+tentativas = 0 
+
+max_tentativas = 5 
+
+  
+
+while True: 
+
+    print("Bem-vindo  ") 
+
+    username = input("Introduza o Username: ") 
+
+    password = input("Introduza a Password: ") 
+
+  
+
+    if username == user and password == password: 
+
+        print("Acertou no Login!") 
+
+        print("Welcome!") 
+
+        break 
+
+    else: 
+
+        tentativas += 1 
+
+        print("Login Errado!") 
+
+  
+
+    if tentativas == max_tentativas: 
+
+        print("Foi Bloqueado!") 
+
+        print("GoodBye ") 
+
+        break 
