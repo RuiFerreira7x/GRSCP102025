@@ -9,7 +9,7 @@ for i in range(4):      # 4 linhas
                 matriz[i][j] = valor
                 break
             else:
-                print("Valor inválido! Digite entre 1 e 20.")
+                print("Valor inválido! Aprsente um valor entre 1 e 20.")
 
 # mostra a matriz
 print("\nMatriz 4x3 preenchida:")
