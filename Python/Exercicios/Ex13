@@ -1,0 +1,10 @@
+lista = [8, 2, 4, 1, 6, 12, 5, 9]
+
+maior_dif = 0
+
+for i in range(len(lista) - 1):
+    dif = abs(lista[i] - lista[i + 1])
+    if dif > maior_dif:
+        maior_dif = dif
+
+print("Maior diferença entre consecutivos:", maior_dif)

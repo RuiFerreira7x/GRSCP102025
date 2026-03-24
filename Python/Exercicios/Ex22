@@ -1,0 +1,97 @@
+import random
+
+# Saldo inicial
+saldo = 50
+
+# Matriz para guardar apostas: [num1, num2, num3, valor]
+apostas = []
+
+def fazer_aposta():
+    global saldo
+
+    print(f"\nSaldo atual: {saldo}€")
+
+    # Valor da aposta
+    valor = int(input("Valor da aposta (múltiplo de 5): "))
+
+    if valor % 5 != 0 or valor <= 0:
+        print("A aposta deve ser um múltiplo de 5.")
+        return
+
+    if valor > saldo:
+        print("Saldo insuficiente.")
+        return
+
+    # Escolha dos 3 números
+    numeros = []
+    for i in range(3):
+        n = int(input(f"Escolha o {i+1}º número (1 a 50): "))
+        if n < 1 or n > 50:
+            print("Número inválido.")
+            return
+        numeros.append(n)
+
+    # Gerar 9 números aleatórios
+    sorteio = [random.randint(1, 50) for _ in range(9)]
+    print("\nNúmeros sorteados:", sorteio)
+
+    # Contar acertos
+    acertos = 0
+    for n in numeros:
+        if n in sorteio:
+            acertos += 1
+
+    print(f"Acertou {acertos} número(s).")
+
+    # Calcular prémio
+    if acertos == 3:
+        ganho = valor * 6
+    elif acertos == 2:
+        ganho = valor * 2
+    elif acertos == 1:
+        ganho = valor * 0.5
+    else:
+        ganho = -valor
+
+    saldo += ganho
+
+    if ganho > 0:
+        print(f"Ganhou {ganho}€!")
+    else:
+        print(f"Perdeu {valor}€.")
+
+    print(f"Saldo atualizado: {saldo}€")
+
+    # Guardar aposta na matriz
+    apostas.append([numeros[0], numeros[1], numeros[2], valor])
+
+
+def listar_apostas():
+    print("\n--- Apostas Realizadas ---")
+    if not apostas:
+        print("Nenhuma aposta feita ainda.")
+        return
+
+    for linha in apostas:
+        print(linha)
+
+
+# ---------------- MENU PRINCIPAL ----------------
+
+while True:
+    print("\n----- MENU -----")
+    print("1 - Fazer aposta")
+    print("2 - Listar apostas")
+    print("3 - Sair")
+
+    opcao = input("Escolha uma opção: ")
+
+    if opcao == "1":
+        fazer_aposta()
+    elif opcao == "2":
+        listar_apostas()
+    elif opcao == "3":
+        print("A sair do programa...")
+        break
+    else:
+        print("Opção inválida.")

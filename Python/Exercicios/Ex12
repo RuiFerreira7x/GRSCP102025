@@ -1,0 +1,36 @@
+def consulta():
+    print("--- CONSULTA ---")
+    print("Função executada com sucesso!")
+
+def registo():
+    print("--- REGISTO ---")
+    print("Função executada com sucesso!")
+
+def apagar():
+    print("--- APAGAR ---")
+    print("Função executada com sucesso!")
+
+def menu():
+    while True:
+        print("\n=== MENU ===")
+        print("1 - Consulta")
+        print("2 - Registo") 
+        print("3 - Apagar")
+        print("4 - Exit")
+        
+        opcao = input("Escolha uma opção (1-4): ")
+        
+        if opcao == '1':
+            consulta()
+        elif opcao == '2':
+            registo()
+        elif opcao == '3':
+            apagar()
+        elif opcao == '4':
+            print("A sair...")
+            break
+        else:
+            print("Opção inválida!")
+
+# Executa o menu
+menu()

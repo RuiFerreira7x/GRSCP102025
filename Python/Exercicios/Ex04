@@ -1,0 +1,15 @@
+total = 0
+contador = 1
+
+while contador <= 3:
+    n = float(input(f"Digite o {contador}º número (entre 0 e 20): "))
+
+    # validação do intervalo
+    if 0 <= n <= 20:
+        total += n
+        contador += 1
+    else:
+        print("Valor inválido! Digite um número entre 0 e 20.")
+
+media = total / 3
+print("A média dos 3 valores é:", media)

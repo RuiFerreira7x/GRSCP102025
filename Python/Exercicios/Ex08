@@ -1,0 +1,91 @@
+while True: 
+
+    print(" ---BEM-VINDO---- ---WELCOME---") 
+
+    print(" ---Menu---") 
+
+    print(" 1-Some todos os numeros 1 100") 
+
+    print(" 2-Some so os multiplos de 3 [1 a 100] ") 
+
+    print(" 3-Conte os pares e os impares [1 a 100] ") 
+
+    print(" 4-Que imprima no ecra quando for divisivel por 100 ") 
+
+    print(" 5-Sair do Programa ") 
+
+  
+
+    opcao=int(input("Escolha um opção: ")) 
+
+  
+
+    match opcao: 
+
+        case 1: 
+
+            soma = 0 
+
+            for i in range(1, 101): 
+
+                soma += i   
+
+     
+
+            print(f"A soma de 1 a 100 é: {soma}") 
+
+     
+
+        case 2: 
+
+            soma = sum(range(3, 101, 3)) 
+
+            print(f"A soma dos múltiplos de 3 entre 1 e 100 é: {soma}") 
+
+     
+
+            pares = 0 
+
+            impares = 0 
+
+         
+
+        case 3: 
+
+            for i in range(1, 101): 
+
+        
+
+                if i % 2 == 0: 
+
+                    pares += 1 
+
+                else: 
+
+                    impares += 1 
+
+     
+
+                    print(f"Total de números pares: {pares}") 
+
+                    print(f"Total de números ímpares: {impares}") 
+
+        
+
+        case 4: 
+
+            for numero in range(1, 100): 
+
+         
+
+                if numero % 10 == 0: 
+
+                    print(f"O número {numero} é divisível por 100.") 
+
+                     
+
+        case 5: 
+
+            print("Leaving GOODBYE") 
+
+            break; 

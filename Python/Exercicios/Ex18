@@ -1,0 +1,17 @@
+# cria matriz 4x3 vazia
+matriz = [[0 for _ in range(3)] for _ in range(4)]
+
+for i in range(4):      # 4 linhas
+    for j in range(3):  # 3 colunas
+        while True:
+            valor = int(input(f"Digite valor para matriz[{i}][{j}] (1-20): "))
+            if 1 <= valor <= 20:
+                matriz[i][j] = valor
+                break
+            else:
+                print("Valor inválido! Aprsente um valor entre 1 e 20.")
+
+# mostra a matriz
+print("\nMatriz 4x3 preenchida:")
+for linha in matriz:
+    print(linha)

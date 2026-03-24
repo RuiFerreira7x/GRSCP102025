@@ -1,0 +1,12 @@
+resultado = ""
+
+while True:
+    palavra = input("Digite uma palavra (ou 'exit' para terminar): ")
+    
+    if palavra.lower() == 'exit':
+        break
+    
+    if len(palavra) > 3:
+        resultado += palavra + " "  # adiciona espaço entre palavras
+
+print("String resultante:", resultado.strip())  # remove espaço final

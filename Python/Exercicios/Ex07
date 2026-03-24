@@ -1,0 +1,7 @@
+soma = 0
+
+for n in range(1, 21):   # de 1 até 20
+    if n % 2 != 0:       # se for ímpar
+        soma += n
+
+print("A soma dos ímpares entre 0 e 20 é:", soma)
