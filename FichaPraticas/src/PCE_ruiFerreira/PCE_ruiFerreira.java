@@ -6,7 +6,7 @@ public class PCE_ruiFerreira {
 
     /**
      * Função para verificar se há vencedor
-     * @param num verficar o jogador1 ou jogador2
+     * @param args verficar o jogador1 ou jogador2
      * @return true há vencedor false  continua o jogo
      */
 
