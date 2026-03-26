@@ -1,4 +1,4 @@
-#Faça um programa que diga os dias vividos até hoje   Verificar fim de semana
+#Faça um programa que diga os dias vividos até hoje, 2- Verificar fim de semana
 from datetime import datetime, date
 data_nascimento_str = input("Digite sua data de nascimento (dd/mm/yyyy): ")
 data_nascimento = datetime.strptime(data_nascimento_str, "%d/%m/%Y").date()
