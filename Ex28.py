@@ -3,7 +3,7 @@ import re
 
 numero = input("Digite um número de telefone: ")
 
-    # Expressão regular para validar números portugueses
+# Expressão regular para validar números portugueses
 padrao = r'^(9[1236]\d{7}|2\d{8})$'
     
 
