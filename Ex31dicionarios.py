@@ -47,7 +47,7 @@ while True:
             print(f"{cidade} não encontrada no dicionário.")
     
     elif escolha == "0":
-        print("A Desligar. Até logo!")
+        print("A Desligar. Até um dia!")
         break
     
     else:
