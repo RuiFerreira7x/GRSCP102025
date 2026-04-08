@@ -34,7 +34,7 @@ while True:
         case "2":
             print("\nFilmes disponíveis:")
             for nome, dados in filmes.items():
-                print(f"- {nome} ({dados['ano']}) - {dados['genero']}")
+                print(f"- {nome} ({dados['ano']}) - {dados['genero']} - {dados['classificacoes']}")
         case "3":
             nome = input("Digite o nome do filme para ver os dados: ")
             if nome in filmes:
