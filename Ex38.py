@@ -65,7 +65,7 @@ def main():
     alunos = carregar_alunos()
 
     while True:
-        print("\n===== MENU =====")
+        print("\n---------- MENU ----------")
         print("1 - Criar aluno")
         print("2 - Apagar aluno")
         print("3 - Listar todos os registos")
