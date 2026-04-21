@@ -1,0 +1,6 @@
+manuel;Depósito;10.0;2026-04-21 13:31;Depósito em numerário;-
+ze;Transferência;10.0;2026-04-21 13:32;Transferência enviada;manuel
+manuel;Transferência Recebida;10.0;2026-04-21 13:32;Transferência recebida;ze
+manuel;Levantamento;10.0;2026-04-21 13:33;Levantamento em numerário;-
+manuel;Transferência;10.0;2026-04-21 13:33;Transferência enviada;ze
+ze;Transferência Recebida;10.0;2026-04-21 13:33;Transferência recebida;manuel

@@ -1,5 +1,5 @@
 import datetime
-
+from getpass import getpass
 # ------------------ FICHEIROS ------------------
 
 def carregar_clientes():
@@ -226,7 +226,7 @@ def login(clientes):
     print("\n----- Bem-vindo ao Sistema de Multibanco -----")
     print("\n----- LOGIN -----")
     user = input("Username: ")
-    pin = input("PIN: ")
+    pin = getpass("PIN: ")
 
     if user == "admin" and pin == "0000":
         menu_admin(clientes)
