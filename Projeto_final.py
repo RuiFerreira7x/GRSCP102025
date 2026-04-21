@@ -65,12 +65,21 @@ def levantar(user, clientes):
         if valor > clientes[user]["saldo"]:
             print("Saldo insuficiente.")
             return
-        clientes[user]["saldo"] -= valor
-        guardar_clientes(clientes)
-        registar_movimento(user, "Levantamento", valor, "Levantamento em numerário")
-        print("Levantamento realizado com sucesso.")
-    except:
-        print("Valor inválido.")
+
+        if valor > 500:
+            confirmar = input(f"Confirma levantamento de € {valor:.2f}? (s/n): ")
+            if confirmar.lower() != "s":
+                print("Operação cancelada.")
+                return
+
+ 
+
+    clientes[user]["saldo"] -= valor
+    guardar_clientes(clientes)
+    registar_movimento(user, "Levantamento", valor, "Levantamento em numerário")
+    print("Levantamento realizado com sucesso.")
+except ValueError:
+    print("Valor inválido.")
 
 
 def depositar(user, clientes):
@@ -82,7 +91,7 @@ def depositar(user, clientes):
         clientes[user]["saldo"] += valor
         guardar_clientes(clientes)
         registar_movimento(user, "Depósito", valor, "Depósito em numerário")
-        print("Depósito realizado com sucesso.")
+        print(f"Depósito realizado. Novo saldo: € {clientes[user]['saldo']:.2f}")
     except:
         print("Valor inválido.")
 
@@ -106,7 +115,7 @@ def transferir(user, clientes):
         registar_movimento(user, "Transferência", valor, "Transferência enviada", destino)
         registar_movimento(destino, "Transferência Recebida", valor, "Transferência recebida", user)
 
-        print(f"Transferência de €{valor:.2f} para {destino} realizada com sucesso.")
+        print(f"Transferência de €{valor:.2f} para {destino} realizada com sucesso. Novo saldo: € {clientes[user]['saldo']:.2f}")
     except:
         print("Valor inválido.")
 
@@ -195,7 +204,9 @@ def menu_user(user, clientes):
         elif op == "3": depositar(user, clientes)
         elif op == "4": transferir(user, clientes)
         elif op == "5": consultar_movimentos(user)
-        elif op == "6": break
+        elif op == "6":
+            print("Obrigado por usar o Multibanco. Volte sempre!")
+            break
         else: print("Opção inválida.")
 
 
@@ -216,7 +227,9 @@ def menu_admin(clientes):
         elif op == "3": pesquisar_movimentos()
         elif op == "4": delete_cliente(clientes)
         elif op == "5": estatisticas()
-        elif op == "6": break
+        elif op == "6":
+            print("Obrigado por usar o Multibanco. Volte sempre!")
+            break
         else: print("Opção inválida.")
 
 
@@ -225,17 +238,31 @@ def menu_admin(clientes):
 def login(clientes):
     print("\n----- Bem-vindo ao Sistema de Multibanco -----")
     print("\n----- LOGIN -----")
-    user = input("Username: ")
-    pin = getpass("PIN: ")
 
-    if user == "admin" and pin == "0000":
-        menu_admin(clientes)
+    tentativas = 0
+
+
+    while tentativas < 3:
+        user = input("Username: ")
+        pin = getpass.getpass("PIN: ")
+
+        if user == "admin" and pin == "0000":
+             menu_admin(clientes)
         return
 
-    if user in clientes and clientes[user]["pin"] == pin:
-        menu_user(user, clientes)
-    else:
-        print("Credenciais inválidas.")
+
+        if user in clientes and clientes[user]["pin"] == pin:
+            menu_user(user, clientes)
+        return
+
+        tentativas += 1
+        restantes = 3 - tentativas
+
+
+        if restantes > 0:
+            print(f"Credenciais inválidas. Tentativas restantes: {restantes}")
+
+    print("Número de tentativas excedido. Sistema bloqueado.")
 
 
 # ------------------ MAIN ------------------
