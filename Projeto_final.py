@@ -255,7 +255,7 @@ def login(clientes):
 
     while tentativas < 3:
         user = input("Username: ")
-        pin = getpass.getpass("PIN: ")
+        pin = getpass("PIN: ")
 
         if user == "admin" and pin == "0000":
              menu_admin(clientes)
