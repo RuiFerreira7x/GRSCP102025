@@ -65,21 +65,17 @@ def levantar(user, clientes):
         if valor > clientes[user]["saldo"]:
             print("Saldo insuficiente.")
             return
-
         if valor > 500:
             confirmar = input(f"Confirma levantamento de € {valor:.2f}? (s/n): ")
             if confirmar.lower() != "s":
                 print("Operação cancelada.")
                 return
-
- 
-
-    clientes[user]["saldo"] -= valor
-    guardar_clientes(clientes)
-    registar_movimento(user, "Levantamento", valor, "Levantamento em numerário")
-    print("Levantamento realizado com sucesso.")
-except ValueError:
-    print("Valor inválido.")
+        clientes[user]["saldo"] -= valor
+        guardar_clientes(clientes)
+        registar_movimento(user, "Levantamento", valor, "Levantamento em numerário")
+        print(f"Levantamentos realizado. Novo saldo: € {clientes[user]['saldo']:.2f}")
+    except:
+        print("Valor inválido.")
 
 
 def depositar(user, clientes):
@@ -107,6 +103,11 @@ def transferir(user, clientes):
         if valor > clientes[user]["saldo"]:
             print("Saldo insuficiente.")
             return
+        if valor > 500:
+            confirmar = input(f"Confirma levantamento de € {valor:.2f}? (s/n): ")
+            if confirmar.lower() != "s":
+                print("Operação cancelada.")
+                return
 
         clientes[user]["saldo"] -= valor
         clientes[destino]["saldo"] += valor
@@ -181,8 +182,18 @@ def delete_cliente(clientes):
 
 def estatisticas():
     movimentos = carregar_movimentos()
-    total = sum(m["valor"] for m in movimentos)
-    print(f"Total movimentado: €{total:.2f}")
+    if not movimentos: 
+     print("Sem movimentos registados.") 
+     return 
+     total = sum(m["valor"] for m in movimentos) 
+     depositos = sum(m["valor"] for m in movimentos if m["tipo"] == "Depósito") 
+     levantamentos = sum(m["valor"] for m in movimentos if m["tipo"] == "Levantamento")
+     transferencias = sum(m["valor"] for m in movimentos if m["tipo"] == "Transferência")
+     print(f"Total movimentado: € {total:.2f}") 
+     print(f"Total em depósitos: € {depositos:.2f}")
+     print(f"Total em levantamentos: € {levantamentos:.2f}") 
+     print(f"Total em transferências: € {transferencias:.2f}") 
+     print(f"Número de transações: {len(movimentos)}")
 
 
 # ------------------ MENUS ------------------
